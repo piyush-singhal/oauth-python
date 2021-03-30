@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <title>Google Login with Flask</title>
+  <style>
+  body {
+    font-family: sans-serif;
+  }
+  .info {
+    margin: 0;
+    padding-left: 5px;
+    border: solid gold 3px;
+    background-color: beige;
+    font-family: monospace;
+  }
+  .info p {
+    margin:  0;
+  }
+  .info p:first-child {
+    font-size: 15px;
+    padding-bottom: 10px;
+  }
+</style>
+</head>
+
+<body>
+
+  <h3>Hello world! This is a Flask application.</h3>
+  {% if not google_data %}
+    <p>Click <a href="/login">here</a> to login with a Google Account.</p>
+  {% else %}
+    <p>Hi, {{ google_data.name }} [<strong>{{ google_data.email }}</strong>]. You have logged in using a Google Account.</p>
+  {% if google_data is not none %}
+    <div class="info">
+      <p>User info fetched from <strong>{{ fetch_url }}</strong></p>
+      {% for key, value in google_data.items() %}
+        <p><strong>{{ key }}</strong>: {{ value }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% endif %}
+
+</html>
