@@ -2,3 +2,4 @@ Flask==2.1.2
 Flask-Dance[sqla]==6.0.0
 blinker==1.4
 python-dotenv==0.18.0
+werkzeug==2.3.7
